@@ -30,4 +30,27 @@
     font-family: Montserrat,Almarai,Tahoma,Sans-Serif;
   }
 
+  .home{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFF;
+    line-height: 92px;
+    padding: 100px 0px 30px 0px;
+    opacity: 100%;
+    z-index: 1;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: block;
+    min-height: 10px;
+    min-width: 16px;
+    position: relative;
+    max-width: 900px;
+  }
+
+
   

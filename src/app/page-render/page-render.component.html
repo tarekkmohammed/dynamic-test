@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
   
-</html>
+  <head>
+    <title [innerText]="page.title"></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
 
-
-
-
-<ng-container *ngFor="let module of modules; let i = index">
-  <div [attr.data-aos]="i % 2 === 0 ? 'slide-right' : 'slide-left'" class="module-container container-fluid w-100">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="text-center mb-3" style = "font-size:24px"[innerText]="module.title"></h3>
-            <h6 class="text-center mb-4" style = "font-size:16px"[innerText]="module.subtitle"></h6>
-            <p [attr.data-aos]="i % 2 === 0 ? 'slide-up' : 'slide-down'"class="card-text" [innerHTML]="module.content"></p>
+  <body>
+    <div class="cover-image"></div>  <!-- cover image --> 
+    <ng-container *ngFor="let module of modules">
+      <div [attr.data-aos]="module.animation_style" class="module-container container-fluid w-100" [style]="module.class" [class]="module.placeholder">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="text-center mb-3" style ="font-size:24px"[innerText]="module.title"></h3>
+                <h6 class="text-center mb-4" style = "font-size:16px"[innerText]="module.subtitle"></h6>
+                <p class="card-text" [innerHTML]="module.content"></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</ng-container>
+    </ng-container>
+
+  </body>
+
+
+</html>
+
+
 
