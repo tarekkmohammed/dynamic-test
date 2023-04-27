@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
-  
-  <head>
-    <title [innerText]="page.title"></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
 
-  <body>
-    <div class="cover-image"></div>  <!-- cover image --> 
-    <ng-container *ngFor="let module of modules">
-      <div [attr.data-aos]="module.animation_style" class="module-container container-fluid w-100" [style]="module.class" [class]="module.placeholder">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="text-center mb-3" style ="font-size:24px"[innerText]="module.title"></h3>
-                <h6 class="text-center mb-4" style = "font-size:16px"[innerText]="module.subtitle"></h6>
-                <p class="card-text" [innerHTML]="module.content"></p>
-              </div>
+<head>
+  <title [innerText]="page.title"></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <!-- <div class="home-elem-1 mb-4">
+      <div class="home-elem-2">
+          <div class="home-elem-3">
+            
+          </div>
+      </div>
+      <div class="home-elem-11"> 
+          <span class="h1 home-elem-12"><p>Making Learning Meaningful &amp; Rewarding. </p></span>
+          <span class="home-elem-13">
+                <p>Discover Our University </p>
+          </span>
+        </div>
+    </div> -->
+
+  <!-- <div class="cover-image"> 
+      <img [src]="'assets/images/' + coverImage" alt="">
+    </div>   -->
+
+  <ng-container *ngFor="let module of modules">
+    <div [attr.data-aos]="module.animation_style" class="module-container container-fluid w-100" [style]="module.class"
+      [class]="module.placeholder">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class=" border-0">
+            <div class="card-body">
+              <h3 class="text-left mb-3 mt-4" style="font-size:24px" [innerText]="module.title"></h3>
+              <h6 class="text-center mb-4" style="font-size:16px" [innerText]="module.subtitle"></h6>
+              <p class="card-text" [innerHTML]="module.content"></p>
             </div>
           </div>
         </div>
       </div>
-    </ng-container>
+    </div>
+  </ng-container>
 
-  </body>
+</body>
 
 
 </html>
-
-
-

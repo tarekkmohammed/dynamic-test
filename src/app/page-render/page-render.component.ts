@@ -9,7 +9,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./page-render.component.css']
 })
 export class PageRenderComponent implements OnInit {
-  @Input() id:any;
+  @Input() id:any;  //TODO: pass this attr into the getPages() function
   page:any;
   modules:any;
   pageTitle:any;
@@ -20,18 +20,21 @@ export class PageRenderComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageServ.getPages().subscribe(data =>{
+
     this.page=data 
-    this.headerImage = this.page.header_image
-    this.coverImage = this.page.cover_image
+    this.headerImage = this.page.header_image_url
+    this.coverImage = this.page.cover_image_url
     this.modules=this.page.modules
 
     this.modules.sort((a:any, b:any) => a.priority - b.priority);  // sort modules by priority
+
     this.modules.forEach((module:any)=>{  // goes through the content and make it safe to render
       module.content = this.sanitizer.bypassSecurityTrustHtml(module.content)
       this.cssServ.getCss(module.class_id).subscribe(cssdata=>{
         module.css_class = cssdata;
         module.class = module.css_class.css;
       });
+
     });
 
     })

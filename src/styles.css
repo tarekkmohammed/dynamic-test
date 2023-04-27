@@ -1,5 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import 'aos/dist/aos.css';
+@import 'assets/animate.min.css';
+
 /* body{
     font-family: Montserrat,Almarai,Tahoma,Sans-Serif;
   } */

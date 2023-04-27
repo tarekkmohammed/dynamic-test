@@ -51,6 +51,117 @@
     position: relative;
     max-width: 900px;
   }
+  .cover-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 
+
+.home-elem-1 {
+    padding: 10px 16px 10px 16px;
+    flex-direction: column;
+    background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.2)0%, rgba(0, 0, 0, 0.4)100%), url(https://res.cloudinary.com/storylens/image/upload/v1682255538/xyelmma3sgaxdywkkori.jpg);
+    background-position: 0% 0%, 50% 50%;
+    background-size: auto, cover;
+    background-repeat: no-repeat no-repeat, no-repeat no-repeat;
+    background-attachment: scroll, scroll;
+    background-clip: border-box, border-box;
+    background-origin: padding-box, padding-box;
+    height: auto;
+    width: 100%;
+    display: flex;
+    margin-right: NaNpx;
+    position: relative;
+}
+.home-elem-2 {
+  padding: 10px 0px 10px 0px;
+  flex-direction: column;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: auto;
+  max-width: 1300px;
+  position: relative;
+  display: flex;
+  margin-right: auto;
+}
+.home-elem-3 {
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  max-width: 1300px;
+  position: relative;
+}
+.home-elem-11 {
+  padding: 10px 0px 80px 0px;
+  flex-direction: column;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: auto;
+  max-width: 1300px;
+  position: relative;
+  display: flex;
+  margin-right: auto;
+}
+.home-elem-12 {
+  font-family: Poppins;
+  font-size: 82px;
+  font-weight: 400;
+  color: #FFF;
+  line-height: 92px;
+  padding: 100px 0px 30px 0px;
+  opacity: 100%;
+  z-index: 1;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: block;
+  min-height: 10px;
+  min-width: 16px;
+  position: relative;
+  max-width: 900px;
+}
+.home-elem-13 {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 300;
+  color: #ffffffff;
+  line-height: 28px;
+  padding: 0px 0px 20px 0px;
+  opacity: 100%;
+  z-index: 1;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: block;
+  min-height: 10px;
+  min-width: 16px;
+  position: relative;
+}
+
+ .wave {
+  border-radius: 50% / 10%;
+  overflow: hidden;
+
+} 
+
+
+
+  
 
   
