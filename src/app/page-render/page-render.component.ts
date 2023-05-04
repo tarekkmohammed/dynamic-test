@@ -19,13 +19,15 @@ export class PageRenderComponent implements OnInit {
   constructor(private pageServ: PageService,private sanitizer:DomSanitizer, private cssServ : CssService) { }
 
   ngOnInit(): void {
-    this.pageServ.getPages().subscribe(data =>{
-
+    console.log(this.id)
+    this.pageServ.getPageById(this.id).subscribe(data =>{
+    if(data!=null){
     this.page=data 
+    this.pageTitle=this.page.title
     this.headerImage = this.page.header_image_url
     this.coverImage = this.page.cover_image_url
     this.modules=this.page.modules
-
+    console.log(this.page.title)
     this.modules.sort((a:any, b:any) => a.priority - b.priority);  // sort modules by priority
 
     this.modules.forEach((module:any)=>{  // goes through the content and make it safe to render
@@ -37,7 +39,7 @@ export class PageRenderComponent implements OnInit {
 
     });
 
-    })
+  }})
 
   }
   

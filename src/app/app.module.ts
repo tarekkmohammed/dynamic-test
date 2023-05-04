@@ -4,15 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageRenderComponent } from './page-render/page-render.component';
 import{HttpClientModule} from '@angular/common/http';
+import { NavbarComponent } from './shared-pages/navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    PageRenderComponent
+    PageRenderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

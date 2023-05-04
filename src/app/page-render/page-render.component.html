@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title [innerText]="page.title"></title>
+  <title [innerText]="pageTitle"></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -26,7 +26,6 @@
   <!-- <div class="cover-image"> 
       <img [src]="'assets/images/' + coverImage" alt="">
     </div>   -->
-
   <ng-container *ngFor="let module of modules">
     <div [attr.data-aos]="module.animation_style" class="module-container container-fluid w-100" [style]="module.class"
       [class]="module.placeholder">
