@@ -27,7 +27,6 @@ export class PageRenderComponent implements OnInit {
     this.headerImage = this.page.header_image_url
     this.coverImage = this.page.cover_image_url
     this.modules=this.page.modules
-    console.log(this.page.title)
     this.modules.sort((a:any, b:any) => a.priority - b.priority);  // sort modules by priority
 
     this.modules.forEach((module:any)=>{  // goes through the content and make it safe to render
