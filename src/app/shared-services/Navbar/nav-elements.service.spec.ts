@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataShareService } from './data-share.service';
+import { NavElementsService } from './nav-elements.service';
 
-describe('DataShareService', () => {
-  let service: DataShareService;
+describe('NavElementsService', () => {
+  let service: NavElementsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataShareService);
+    service = TestBed.inject(NavElementsService);
   });
 
   it('should be created', () => {
