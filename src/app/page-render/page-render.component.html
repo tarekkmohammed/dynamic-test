@@ -26,6 +26,8 @@
   <!-- <div class="cover-image"> 
       <img [src]="'assets/images/' + coverImage" alt="">
     </div>   -->
+
+
   <ng-container *ngFor="let module of modules">
     <div [attr.data-aos]="module.animation_style" class="module-container container-fluid w-100" [style]="module.class"
       [class]="module.placeholder">
@@ -42,7 +44,24 @@
       </div>
     </div>
   </ng-container>
-
+  
+  <!-- <ng-container *ngFor="let module of modules">
+    <div [attr.data-aos]="module.animation_style" class="module-container container-fluid w-100" [style]="module.class"
+      [class]="module.placeholder">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <img class="img-fluid mb-3" [src]="module.image_url" alt="">
+          <div class=" border-0">
+            <div class="card-body">
+              <h3 class="text-left mb-3 mt-4" style="font-size:24px" [innerText]="module.title"></h3>
+              <h6 class="text-center mb-4" style="font-size:16px" [innerText]="module.subtitle"></h6>
+              <p class="card-text" [innerHTML]="module.content"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container> -->
 </body>
 
 

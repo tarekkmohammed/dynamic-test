@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PageRenderComponent } from './page-render/page-render.component';
 import{HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './shared-pages/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { NavbarComponent } from './shared-pages/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
