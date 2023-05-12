@@ -42,8 +42,9 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <ng-container *ngFor="let element of elements">
-            <div *ngIf="element.isDropDown; else elseBlock">
-              <li ngbDropdown class="nav-item dropdown">
+            <!-- if element is drop down menu -->
+            <div *ngIf="element.isDropDown; else elseBlock">  
+              <li ngbDropdown class="nav-item dropdown" (mouseover)="element.isHovered = true" (mouseout)="element.isHovered = false" [class.show]="element.isHovered">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" (click)="sendIdToParent(element.referenced_page,'/'+element.name)" [routerLink]="['']" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ element.name }}</a>               
                   <div ngbDropdownMenu class="dropdown-menu">
                     <div *ngFor="let elem of element.drop_down_elements">
@@ -52,7 +53,7 @@
                   </div>
               </li>
             </div>
-            
+            <!-- if element is normal link -->
             <ng-template #elseBlock>
               <li class="nav-item">
                 <a class="nav-link" (click)="sendIdToParent(element.referenced_page,'/'+element.name)" [routerLink]="['']">{{ element.name }}</a>
