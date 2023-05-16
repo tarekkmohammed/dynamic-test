@@ -6,18 +6,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PageService {
-  private configUrl="http://localhost:3000/page"
+export class DisplayService {
+  private configUrl="http://localhost:3000/displays"
   constructor(private http : HttpClient) {
 
    }
-   getPageById(id: number): Observable<any> {
+   getDisplayById(id: number): Observable<any> {
     const url = `${this.configUrl}/${id}`;
     return this.http.get<any>(url);
   }
 
-
-   getPages(){
+   getDisplays(){
     return this.http.get(this.configUrl)
    }
 }

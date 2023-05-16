@@ -1,0 +1,8 @@
+.container {
+    max-width: 600px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+.mask{
+  background-color: rgba(251, 251, 251, 0.15);
+}
+  

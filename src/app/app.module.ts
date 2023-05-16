@@ -6,12 +6,14 @@ import { PageRenderComponent } from './page-render/page-render.component';
 import{HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './shared-pages/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DisplayComponent } from './display/display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageRenderComponent,
-    NavbarComponent
+    NavbarComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
