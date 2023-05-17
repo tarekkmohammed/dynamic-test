@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({
@@ -20,14 +20,22 @@ export class PageTreeService {
     return this.http.get(this.configUrl)
    }
 
-   getPageChildren(id: number) {
-        let idsOfChildren: number[] = [];
-        this.getPageTreeById(id).subscribe(page => {
-            for (let child of page.children) {
-                idsOfChildren.push(child.id)
-            }
-        });
-        return idsOfChildren;
-        
+   /**
+ * Returns an Observable that emits an array of children IDs for a given page ID.
+ *
+ * @param id The ID of the page to get the children IDs for.
+ * @returns An Observable that emits an array of children IDs.
+ */
+   getPageChildren(id: number): Observable<number[]> {
+    let idsOfChildren: Subject<number[]> = new Subject<number[]>();
+    this.getPageTreeById(id).subscribe(page => {
+    let childrenIds = [];
+    for (let child of page.children) {
+      childrenIds.push(child.id)
     }
+    idsOfChildren.next(childrenIds);
+    });
+    return idsOfChildren.asObservable();
+   }
+   
 }
