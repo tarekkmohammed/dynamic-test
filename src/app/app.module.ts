@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { PageRenderComponent } from './page-render/page-render.component';
 import{HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './shared-pages/navbar/navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisplayComponent } from './display/display.component';
 
 @NgModule({
@@ -20,6 +20,7 @@ import { DisplayComponent } from './display/display.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    NgbCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

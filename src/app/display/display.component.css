@@ -5,4 +5,24 @@
 .mask{
   background-color: rgba(251, 251, 251, 0.15);
 }
-  
+.card-img-top {
+  object-fit: contain;
+  aspect-ratio: 3/2;
+}
+.carousel-container {
+  .carousel-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .slide {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+}
+
+

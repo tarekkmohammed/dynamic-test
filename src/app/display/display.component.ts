@@ -4,13 +4,36 @@ import { PageTreeService } from '../shared-services/pageTree.service';
 import { PageService } from '../shared-services/page/page.service';
 import { pageRoute } from '../models/Interface/pageRoute';
 import { Router } from '@angular/router';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  styleUrls: ['./display.component.css'],
+  
 })
 export class DisplayComponent implements OnInit {
+
+  currentIndex: number = 0;
+
+  slides: Slide[] = [
+    {
+      image: 'assets/images/hos2.png',
+      title: 'Slide 1',
+      description: 'This is the first slide'
+    },
+    {
+      image: 'assets/images/hos3.png',
+      title: 'Slide 2',
+      description: 'This is the second slide'
+    },
+    // Add more slides as needed
+  ];
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+  }
+  
   @Input() id: any;
 
   display: any;
@@ -18,6 +41,7 @@ export class DisplayComponent implements OnInit {
   settings: any;
   childrenIds: any[] = [];
   childrenPages: any[] = [];
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
   @Output() pageChange = new EventEmitter<pageRoute>();
     pageData: pageRoute={ ID: 0, url: '' };
@@ -70,10 +94,16 @@ export class DisplayComponent implements OnInit {
     console.log('children pages',this.childrenPages)
     });
     }
+    
    }
    
    
    
    
    
+}
+interface Slide {
+  image: string;
+  title: string;
+  description: string;
 }
