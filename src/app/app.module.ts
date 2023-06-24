@@ -12,6 +12,8 @@ import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
 import {StyleClassModule} from "primeng/styleclass";
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import {StyleClassModule} from "primeng/styleclass";
     FormsModule,
     CarouselModule,
     StyleClassModule,
+    MatGridListModule
 
     // SlickCarouselModule
   ],

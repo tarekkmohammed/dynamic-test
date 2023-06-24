@@ -48,21 +48,41 @@
 <!--      <i id="right" class="fa-solid fa-angle-right"></i>-->
 <!--    </div>-->
 
-      <div class="card">
-        <p-carousel [value]="images_" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
-                    [circular]="cards_carousel_settings.autoplay" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions">
-          <ng-template let-image pTemplate="item" >
-            <div class="item card" >
-              <img src="{{image.picture}}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{image.random}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+<div class="card">
+  <p-carousel [value]="images_" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
+              [circular]="cards_carousel_settings.autoplay" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions">
+    <ng-template let-image pTemplate="content">
+        <div  class="p-col">
+          <div class="item card m-3">
+            <img src="{{image.picture}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{image.random}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary m-2">Go somewhere</a>
             </div>
-          </ng-template>
-        </p-carousel>
-      </div>
+          </div>
+        </div>
+    </ng-template>
+  </p-carousel>
+</div>
+
+<!--have attributes like /*gutterSize*/ for the distance between the items
+for each item to specify its rows and columns span put span attribute and change it for more than 1
+if 1 => it will take the whole row or column
+if 0 it will be disappeared
+there is no specifications for the number of rows but it is a ratio from the height of the row to the width of the column
+see the example below of element number 3
+-->
+<mat-grid-list cols="2" rowHeight="2:1" gutterSize="10px">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile><div class="card">
+    my name is loay
+  </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>
+
 
 <!--  </body>-->
 <!--</html>-->
