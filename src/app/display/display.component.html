@@ -51,8 +51,8 @@
       <div class="card">
         <p-carousel [value]="images_" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
                     [circular]="cards_carousel_settings.autoplay" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions">
-          <ng-template let-image pTemplate="item">
-            <div class="item card">
+          <ng-template let-image pTemplate="item" >
+            <div class="item card" >
               <img src="{{image.picture}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{image.random}}</h5>

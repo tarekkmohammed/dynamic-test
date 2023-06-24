@@ -19,7 +19,7 @@ export class DisplayComponent implements OnInit {
    * is about the multi-card-carousel-settings
    */
   cards_carousel_settings = {
-    numVisible: 2,
+    numVisible: 3,
     numScroll: 2,
     autoplay: false,
     autoplaySpeed: 0,

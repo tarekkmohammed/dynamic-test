@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 // import {SlickCarouselModule} from "ngx-slick-carousel";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
+import {StyleClassModule} from "primeng/styleclass";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CarouselModule } from 'primeng/carousel';
     NgbModule,
     NgbCarouselModule,
     FormsModule,
-    CarouselModule
+    CarouselModule,
+    StyleClassModule,
 
     // SlickCarouselModule
   ],
