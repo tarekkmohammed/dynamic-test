@@ -7,6 +7,11 @@ import{HttpClientModule} from '@angular/common/http';
 import { NavbarComponent } from './shared-pages/navbar/navbar.component';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisplayComponent } from './display/display.component';
+import {FormsModule} from "@angular/forms";
+// import {SlickCarouselModule} from "ngx-slick-carousel";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'primeng/carousel';
+
 
 @NgModule({
   declarations: [
@@ -17,10 +22,15 @@ import { DisplayComponent } from './display/display.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    FormsModule,
+    CarouselModule
+
+    // SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

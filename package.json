@@ -24,9 +24,11 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
-    "jquery": "^3.6.4",
+    "jquery": "^3.7.0",
     "ngx-bootstrap": "^10.2.0",
+    "primeng": "^14.2.3",
     "rxjs": "~7.5.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
