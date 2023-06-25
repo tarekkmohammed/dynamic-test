@@ -26,7 +26,7 @@ export class DisplayComponent implements OnInit {
   }
 
   @Input() id: any;
-
+  marginClass = 'm-2';
   display: any;
   displayPage:any;
   settings: any;

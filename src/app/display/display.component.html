@@ -48,21 +48,20 @@
 <!--      <i id="right" class="fa-solid fa-angle-right"></i>-->
 <!--    </div>-->
 
-      <div class="card">
-        <p-carousel [value]="images_" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
-                    [circular]="cards_carousel_settings.autoplay" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions">
-          <ng-template let-image pTemplate="item" >
-            <div class="item card" >
-              <img src="{{image.picture}}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{image.random}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </ng-template>
-        </p-carousel>
+<div class="card">
+  <p-carousel [value]="images_" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
+              [circular]="cards_carousel_settings.autoplay" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions">
+    <ng-template let-image pTemplate="item" >
+      <div class="item card {{marginClass}}" >
+        <img src="{{image.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{image.random}}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary {{marginClass}}">Go somewhere</a>
+        </div>
       </div>
-
+    </ng-template>
+  </p-carousel>
+</div>
 <!--  </body>-->
 <!--</html>-->
