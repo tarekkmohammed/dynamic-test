@@ -44,7 +44,16 @@ export class DisplayComponent implements OnInit {
       breakpoint: '1024px',
       numVisible: 2,
       numScroll: 3
+    },{
+      breakpoint: '768px',
+      numVisible: 1,
+      numScroll: 2
+    },{
+      breakpoint: '560px',
+      numVisible: 1,
+      numScroll: 1
     }];
+
   }
 
   async fetchData(id:number){
@@ -99,6 +108,5 @@ export class DisplayComponent implements OnInit {
     console.log('children pages',this.childrenPages)
     });
     }
-
    }
 }

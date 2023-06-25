@@ -1,16 +1,19 @@
-<p hidden>{{ cards_carousel_settings.autoplaySpeed }}</p>
-<p hidden>{{ settings.auto_play }}</p>
-<p hidden>{{ settings.effect_speed_ms }}</p>
+<p >{{ cards_carousel_settings.autoplaySpeed }}</p>
+<p  >{{ settings.auto_play }}</p>
+<p >{{ settings.effect_speed_ms }}</p>
 <div class="card">
   <p-carousel [value]="childrenPages" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
-              [circular]="cards_carousel_settings.autoplay" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions">
+              [circular]="cards_carousel_settings.autoplay" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions" >
     <ng-template let-page pTemplate="item" >
-      <div class="item card {{marginClass}}" >
-          <img [src] = " 'assets/images/' + page.cover_image_url " class="card-img-top" alt="...">
+      <div class="item card {{marginClass}}" style="height: 400px">
+          <img [src] = " 'assets/images/' + page.cover_image_url " class="card-img-top"  alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{page.title}}</h5>
-          <p class="card-text">{{ page.short_description }}</p>
-          <a href="#" class="btn btn-primary {{marginClass}}">Go somewhere</a>
+          <h5 class="card-title text-center">{{page.title}}</h5>
+          <p class="card-text text-center short_desc" >{{ page.short_description }}</p>
+<!--          want to center the button after-->
+          <div style="text-align: center">
+            <a href="#" class="btn btn-primary p-2 {{marginClass}}">Learn more.</a>
+          </div>
         </div>
       </div>
     </ng-template>
@@ -25,7 +28,7 @@
           <div class="card" style="max-width: 22rem;" [attr.data-aos]="settings.animation">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                   <img [src]=" 'assets/images/' + card.cover_image_url " class="card-img-top">
-                  <a href="#!">
+                  <a href="#">
                   <div class="mask"></div>
                   </a>
               </div>
@@ -43,26 +46,29 @@
 
 
 <div class="card">
-<section class="p-4 d-flex justify-content-center  w-100 ">
-  <p-carousel [value]="childrenPages" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
-              [circular]="cards_carousel_settings.autoplay" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions" class="ps-3">
-    <ng-template let-page pTemplate="item">
-      <div class="item card {{marginClass}}" style="max-width: 22rem;" [attr.data-aos]="settings.animation">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-          <img [src] = " 'assets/images/' + page.cover_image_url " class="card-img-top" alt="...">
-          <a href="#!">
-            <div class="mask"></div>
+  <section class="p-4 d-flex justify-content-center w-100">
+    <p-carousel [value]="childrenPages" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
+                [circular]="cards_carousel_settings.autoplay" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions" class="ps-3">
+      <ng-template let-page pTemplate="item">
+        <div class="item card {{marginClass}} mx-auto" style="max-width: 22rem;" [attr.data-aos]="settings.animation">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img [src]="'assets/images/' + page.cover_image_url" class="card-img-top" alt="...">
+            <a href="#!">
+              <div class="mask"></div>
             </a>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">{{page.title}}</h5>
+            <p class="card-text short_desc">{{ page.short_description }}</p>
+            <div class="text-center">
+              <a class="btn btn-primary p-2 m-2" (click)="sendIdToParent(page.id,'/'+ displayPage.title +'/'+page.title)" [routerLink]="['']">Learn more</a>
+            </div>
+          </div>
         </div>
-          
-        <div class="card-body">
-          <h5 class="card-title">{{page.title}}</h5>
-          <p class="card-text">{{ page.short_description }}</p>
-          <a class="btn btn-primary" (click)="sendIdToParent(page.id,'/'+ displayPage.title +'/'+page.title)" [routerLink]="['']">Learn more</a>
-        </div>
-      </div>
-    </ng-template>
-  </p-carousel>
-</section>
+      </ng-template>
+    </p-carousel>
+  </section>
 </div>
+
 

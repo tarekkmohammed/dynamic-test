@@ -175,3 +175,46 @@ body {
   height: 100px;
   background-size: cover;
 }
+
+.custom-carousel {
+  max-height: 400px; /* Set the desired maximum height */
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev {
+  color: black;
+
+}
+
+/*::ng-deep .p-carousel .p-carousel-content .p-carousel-next {*/
+/*  color: black;*/
+/*}*/
+
+.p-carousel-next, .p-carousel-prev {
+  box-shadow: none !important;
+  border-width: 1px !important;
+}
+
+.short_desc{
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.card-img-top{
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-prev {
+
+  color: black;
+}
+
+::ng-deep .p-carousel .p-carousel-content .p-carousel-next {
+
+  color: black;
+}
+.item{
+  margin-left: 50px;
+}
