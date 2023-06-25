@@ -21,7 +21,7 @@ export class DisplayComponent implements OnInit {
    * is about the multi-card-carousel-settings
    */
   cards_carousel_settings = {
-    numVisible: 3,
+    numVisible: 2,
     numScroll: 2,
     autoplay: false,
     autoplaySpeed: 0,
@@ -61,14 +61,6 @@ export class DisplayComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     // its about images of the card slider
-    this.images_ = [
-      {random: 'Random', picture: 'https://picsum.photos/id/944/900/500'},
-      {random: 'Samoa', picture: 'https://picsum.photos/id/1011/900/500'},
-      {random: 'Tonga', picture: 'https://picsum.photos/id/984/900/500'},
-      {random: 'Cook Island', picture: 'https://picsum.photos/id/944/900/500'},
-      {random: 'Niue', picture: 'https://picsum.photos/id/1011/900/500'},
-      {random: 'American Samoa', picture: 'https://picsum.photos/id/984/900/500'}
-    ];
     const display = await this.displayServ.getDisplayById(this.id).toPromise();
     if (display != null) {
       this.display = display;
@@ -76,6 +68,12 @@ export class DisplayComponent implements OnInit {
       this.settings = display.grid_setting;
     } else if (display.type === 'slider') {
       this.settings = display.slider_setting;
+      this.cards_carousel_settings.numVisible = this.settings.slides_per_row
+
+      if(this.settings.auto_play === 1){
+        this.cards_carousel_settings.autoplaySpeed = this.settings.effect_speed_ms
+        console.log('speed',this.cards_carousel_settings.autoplaySpeed)
+      }
     }
     this.pageServ.getPageById(display.source_page_id).subscribe(page=>{
       this.displayPage = page;

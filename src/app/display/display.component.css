@@ -168,3 +168,10 @@ body {
 .mat-grid-tile {
   background: lightblue;
 }
+
+.img {
+  /* float: left; */
+  width:  100px;
+  height: 100px;
+  background-size: cover;
+}
