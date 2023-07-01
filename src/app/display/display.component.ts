@@ -24,6 +24,7 @@ export class DisplayComponent implements OnInit {
     numVisible: 2,
     numScroll: 2,
     autoplay: false,
+    loop_slides:true,
     autoplaySpeed: 0,
   }
 
@@ -78,11 +79,14 @@ export class DisplayComponent implements OnInit {
     } else if (display.type === 'slider') {
       this.settings = display.slider_setting;
       this.cards_carousel_settings.numVisible = this.settings.slides_per_row
+      
+      this.cards_carousel_settings.loop_slides = this.settings.loop_slides
 
       if(this.settings.auto_play === 1){
         this.cards_carousel_settings.autoplaySpeed = this.settings.effect_speed_ms
         console.log('speed',this.cards_carousel_settings.autoplaySpeed)
       }
+      
     }
     this.pageServ.getPageById(display.source_page_id).subscribe(page=>{
       this.displayPage = page;
