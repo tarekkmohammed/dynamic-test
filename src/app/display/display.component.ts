@@ -78,6 +78,7 @@ export class DisplayComponent implements OnInit {
       this.settings = display.grid_setting;
     } else if (display.type === 'slider') {
       this.settings = display.slider_setting;
+
       this.cards_carousel_settings.numVisible = this.settings.slides_per_row
       
       this.cards_carousel_settings.loop_slides = this.settings.loop_slides
