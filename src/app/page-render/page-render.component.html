@@ -30,7 +30,7 @@
   </ng-container>
 
   <ng-template #elseblock>
-    <app-display [id]=module.id (pageChange)="this.appcomponent.handlePageRoute($event)"></app-display>  <!-- TODO: need to implement the handle page route-->
+    <app-display [id]="module.id" (pageChange)="this.appcomponent.handlePageRoute($event)"></app-display>  <!-- TODO: need to implement the handle page route-->
   </ng-template>
     
   </ng-container>

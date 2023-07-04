@@ -1,8 +1,8 @@
 
 <div class="card">
-  <p-carousel [value]="childrenPages" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
-              [circular]="cards_carousel_settings.loop_slides" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions" >
-    <ng-template let-page pTemplate="item" >
+  <p-carousel *ngIf="childrenPages.length!=0&& settings&&cards_carousel_settings "  [value]="childrenPages" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
+              [circular]="true" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions" >
+    <ng-template  let-page pTemplate="item"  >
       <div class="item card {{marginClass}}" style="height: 400px">
           <img [src] = " 'assets/images/' + page.cover_image_url " class="card-img-top"  alt="...">
         <div class="card-body">
@@ -10,7 +10,7 @@
           <p class="card-text text-center short_desc" >{{ page.short_description }}</p>
 
           <div style="text-align: center">
-            <a href="#" class="btn btn-primary p-2 m-2 {{marginClass}}">Learn more.</a>
+            <a class="btn btn-primary p-2 m-2" (click)="sendIdToParent(page.id,'/'+ displayPage.title +'/'+page.title)" [routerLink]="['']">Learn more</a>
           </div>
         </div>
       </div>

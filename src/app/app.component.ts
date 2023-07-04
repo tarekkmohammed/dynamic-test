@@ -27,6 +27,7 @@ export class AppComponent {
       mirror: true,
       anchorPlacement: 'top-bottom',
   });
+ 
   }
 
   handlePageRoute(pagedata:pageRoute){
@@ -38,7 +39,8 @@ export class AppComponent {
   }
 
   ngOnInit() {
-
+    // reChange the baseUrl <<
+   
   }
   
 }
