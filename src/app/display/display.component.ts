@@ -39,8 +39,6 @@ export class DisplayComponent implements OnInit {
   childrenIds: number[]=[]
   childrenPages: any[] = [];
 
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-
   @Output() pageChange = new EventEmitter<pageRoute>();
   pageData: pageRoute = { ID: 0, url: '' };
 
@@ -76,6 +74,7 @@ export class DisplayComponent implements OnInit {
  ngOnInit()  {
     this.displayServ.getDisplayById(this.id).subscribe(data=>{
       this.display=data
+      console.log('type', this.display.type)
       
       if (this.display.type === 'grid') {
         this.settings = this.display.grid_setting;
@@ -113,7 +112,7 @@ export class DisplayComponent implements OnInit {
             console.log('No children IDs available.');
           }
         
-          //console.log('children pages', this.childrenPages);
+          console.log('children pages', this.childrenPages);
         });
       });
   
