@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'primeng/carousel';
 import {StyleClassModule} from "primeng/styleclass";
 import {MatGridListModule} from '@angular/material/grid-list';
+import { SiteIdentityComponent } from './shared-pages/siteIdentity/site-identity/site-identity.component';
 
 
 
@@ -21,7 +22,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppComponent,
     PageRenderComponent,
     NavbarComponent,
-    DisplayComponent
+    DisplayComponent,
+    SiteIdentityComponent
   ],
   imports: [
     BrowserModule,
