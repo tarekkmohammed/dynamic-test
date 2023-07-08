@@ -13,17 +13,23 @@ export class SiteIdentityComponent implements OnInit {
   about:any;
   contactUsArray:any;
   socialMediaArray:any;
+  Site_identity:any;
+  images:any;
 
 
   constructor(private siteIdentityServ: SiteIdentityService) { }
 
   ngOnInit(): void {
-    this.siteIdentityServ.getSiteIdentityById(this.id).subscribe(data=>{
-      this.contactUs = data.contact_us
-      this.socialMedia = data.social_media
-      this.about = data.about
+    this.siteIdentityServ.getSiteIdentity().subscribe(data=>{
+      this.Site_identity = JSON.parse(JSON.stringify(data))
+      this.Site_identity = this.Site_identity.Site_identity
+      console.log('site identity', this.Site_identity)
+      this.contactUs = this.Site_identity.contact_us
+      this.socialMedia = this.Site_identity.social_media
+      this.about = this.Site_identity.about
       this.socialMediaArray = [];
       this.contactUsArray = [];
+      this.images = this.Site_identity.images
 
       for (const key in this.socialMedia) {
         if (Object.prototype.hasOwnProperty.call(this.socialMedia, key)) {
@@ -31,7 +37,6 @@ export class SiteIdentityComponent implements OnInit {
           this.socialMediaArray.push({ name: key, value });
         }
       }
-
       for (const key in this.contactUs) {
         if (Object.prototype.hasOwnProperty.call(this.contactUs, key)) {
           const value = this.contactUs[key];
@@ -39,10 +44,10 @@ export class SiteIdentityComponent implements OnInit {
         }
       }
       console.log('contactUSUS', this.contactUsArray)
-      console.log('socialMedia', this.socialMedia)
+      console.log('socialMedia', this.socialMediaArray)
     })
-
-
   }
-
+  getLogo(){
+    return this.images
+  }
 }

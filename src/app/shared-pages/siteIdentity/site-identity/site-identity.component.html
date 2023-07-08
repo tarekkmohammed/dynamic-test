@@ -1,8 +1,5 @@
 <!-- Footer -->
-
-
 <footer class="text-center text-lg-start bg-white text-muted">
-
   <!-- Section: Links  -->
   <section class="">
     <div class="container text-center text-md-start mt-5">
@@ -28,12 +25,11 @@
             social media
           </h6>
           <div class="p-2 d-flex">
-            <p class="me-2"><a href="{{socialMedia.facebookLink}}"><i class="fab fa-facebook-square text-secondary"></i></a></p>
-            <p class="me-2"><a href="{{socialMedia.twitterLink}}"><i class="fab fa-twitter text-secondary"></i></a></p>
-            <p><a href="{{socialMedia.instagramLink}}"><i class="fab fa-instagram text-secondary"></i></a></p>
+            <p class="me-2"><a href="{{socialMedia?.facebookLink}}"><i class="fab fa-facebook-square text-secondary"></i></a></p>
+            <p class="me-2"><a href="{{socialMedia?.twitterLink}}"><i class="fab fa-twitter text-secondary"></i></a></p>
+            <p><a href="{{socialMedia?.instagramLink}}"><i class="fab fa-instagram text-secondary"></i></a></p>
           </div>
-
-
+          <img [src]="'assets/images/' + images.defaultCoverLogo" style="width: 100px; height: 100px;">
           <ng-component *ngFor="let itemSocial of socialMediaArray">
             <p>
               <a href="itemSocial.value" class="text-reset">{{ itemSocial.name }}</a>
@@ -56,13 +52,6 @@
             <p><i class="fas fa-print me-2 text-secondary"></i>{{contactUs.universityLandline}}</p>
           </div>
 
-          <!--          continue the rest of thr attributes
-          "mainPhoneNumber": "01124594263",
-                "universityAdress": "afa",
-                "universityEmail": "jebfjiae@gmail.com",
-                "universityLandline": "test"-->
-
-
           <ng-component *ngFor="let itemContact of contactUsArray">
             <p>
               <a href="itemContact.value" class="text-reset">{{ itemContact.name }}</a>
@@ -80,7 +69,7 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
     © 2023 Copyright:
-    <a class="text-reset fw-bold" href="https://http://newecom.fci.cu.edu.eg/">FCAI Cairo University</a>
+    <a class="text-reset fw-bold" href="https://newecom.fci.cu.edu.eg/">FCAI Cairo University</a>
   </div>
   <!-- Copyright -->
 </footer>

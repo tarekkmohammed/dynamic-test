@@ -34,7 +34,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">My Website</a>
+      <img [src]="'assets/images/' + websiteLogo" style="width: 50px; height: 50px;">
+      <a class="navbar-brand p-2" href="#">{{ websiteName }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -43,9 +44,9 @@
         <ul class="navbar-nav">
           <ng-container *ngFor="let element of elements">
             <!-- if element is drop down menu -->
-            <div *ngIf="element.isDropDown; else elseBlock">  
+            <div *ngIf="element.isDropDown; else elseBlock">
               <li ngbDropdown class="nav-item dropdown" (mouseover)="element.isHovered = true" (mouseout)="element.isHovered = false" [class.show]="element.isHovered">
-                <a ngbDropdownToggle class="nav-link dropdown-toggle" (click)="sendIdToParent(element.referenced_page,'/'+element.name)" [routerLink]="['']" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ element.name }}</a>               
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" (click)="sendIdToParent(element.referenced_page,'/'+element.name)" [routerLink]="['']" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ element.name }}</a>
                   <div ngbDropdownMenu class="dropdown-menu">
                     <div *ngFor="let elem of element.drop_down_elements">
                       <a ngbDropdownItem class="dropdown-item" (click)="sendIdToParent(elem.referenced_page,'/'+elem.name)" [routerLink]="['']">{{ elem.name }}</a>

@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class SiteIdentityService {
   private configUrl="http://localhost:3000/Site_identity"
+  private url = "http://LocalHost:8000/api/siteIdentity/latest"
 
-  constructor(private http : HttpClient) { 
+  constructor(private http : HttpClient) {
 
   }
 
@@ -16,5 +17,10 @@ export class SiteIdentityService {
     const url = `${this.configUrl}/${id}`;
     return this.http.get<any>(url);
   }
+
+  getSiteIdentity(){
+    return this.http.get(this.url)
+  }
+
 
 }
