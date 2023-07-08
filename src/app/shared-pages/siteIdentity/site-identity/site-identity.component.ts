@@ -39,8 +39,9 @@ export class SiteIdentityComponent implements OnInit {
         }
       }
       console.log('contactUSUS', this.contactUsArray)
+      console.log('socialMedia', this.socialMedia)
     })
-    
+
 
   }
 

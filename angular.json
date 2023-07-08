@@ -28,6 +28,11 @@
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
+//              font-awesome in assets folder
+              "src/assets/fontawsome/css/fontawesome.css",
+              "src/assets/fontawsome/css/brands.css",
+              "src/assets/fontawsome/css/solid.css",
+
 
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
