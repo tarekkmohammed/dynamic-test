@@ -19,14 +19,16 @@ export class PageRenderComponent implements OnInit {
   headerImage:any;
   coverImage:any;
   sanitizedContent!: SafeHtml;
+  cssClass!:any
   constructor(private pageServ: PageService,private sanitizer:DomSanitizer, private cssServ : CssService, public appcomponent:AppComponent) { }
 
 
   ngOnInit(): void {
-    console.log(this.id)
+   
+    if(this.id){
     this.pageServ.getPageById(this.id).subscribe(data =>{
     if(data!=null){
-    this.page=data 
+    this.page=data.page
     this.pageTitle=this.page.title
     this.headerImage = this.page.header_image_url
     this.coverImage = this.page.cover_image_url
@@ -35,8 +37,10 @@ export class PageRenderComponent implements OnInit {
       module.content = this.sanitizer.bypassSecurityTrustHtml(module.content)
       module.type = "module"  // flagging the modules 
       this.cssServ.getCss(module.class_id).subscribe(cssdata=>{
-        module.css_class = cssdata;
-        module.class = module.css_class.css;
+       this.cssClass=cssdata
+       this.cssClass=this.cssClass.cssClasses
+        module.css_class = this.cssClass
+        module.class = module?.css_class?.css;
       });
 
     });
@@ -47,6 +51,6 @@ export class PageRenderComponent implements OnInit {
 
   }})
 
-  }
+  }}
   
 }

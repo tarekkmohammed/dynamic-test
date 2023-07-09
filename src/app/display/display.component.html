@@ -1,4 +1,4 @@
-<ng-container *ngIf="display.type === 'slider'">
+<ng-container *ngIf="display?.type === 'slider'">
   <div class="card">
     <p-carousel *ngIf="childrenPages.length!=0&& settings&&cards_carousel_settings " [value]="childrenPages" styleClass="custom-carousel" [numVisible]="cards_carousel_settings.numVisible" [numScroll]="cards_carousel_settings.numScroll"
                 [circular]="true" [attr.data-aos]="settings.animation" [autoplayInterval]="cards_carousel_settings.autoplaySpeed" [responsiveOptions]="responsiveOptions" >
@@ -19,24 +19,28 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="display.type === 'grid'">
+<ng-container *ngIf="display?.type === 'grid'">
   <section class="p-4 text-center w-100 card">
-    <div class="row row-cols-2 row-cols-md-3 g-4">
-      <ng-container *ngFor="let page of childrenPages">
+    <div class="row row-cols-2 row-cols-md-3 g-4" [ngClass]="{'justify-content-center': true}">
+      <ng-container *ngFor="let page of childrenPages; let i = index">
         <div class="col">
-          <div class="card h-100" [attr.data-aos]="settings.blocks_animation">
+          <div class="card h-100"[ngStyle]="{'margin': settings.blocks_spacing + 'px'}" [attr.data-aos]="settings.blocks_animation">
             <img [src]= " 'assets/images/' + page.cover_image_url " class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ page.title }}</h5>
               <p class="card-text">{{page.short_description}}</p>
 
               <div style="text-align: center">
-                <a class="btn btn-primary p-2 m-2" (click)="sendIdToParent(page.id,'/'+ displayPage.title +'/'+page.title)" [routerLink]="['']">test this is grid</a>
+                <a class="btn btn-primary p-2 m-2" (click)="sendIdToParent(page.id,'/'+ displayPage.title +'/'+page.title)" [routerLink]="['']">Learn More</a>
               </div>
             </div>
           </div>
+         
         </div>
-      </ng-container>
+        
+     <div *ngIf="(i + 1) % settings.blocks_per_row === 0" class="w-100"></div>
+     <br style="margin-top: 0px; margin-bottom: -3px;">  
+    </ng-container>
     
     </div>
   </section> 

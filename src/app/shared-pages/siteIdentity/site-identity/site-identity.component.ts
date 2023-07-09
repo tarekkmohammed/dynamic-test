@@ -7,7 +7,7 @@ import { SiteIdentityService } from 'src/app/shared-services/siteIdentity/site-i
   styleUrls: ['./site-identity.component.css']
 })
 export class SiteIdentityComponent implements OnInit {
-  @Input() id:any;
+
   contactUs:any;
   socialMedia:any;
   about:any;

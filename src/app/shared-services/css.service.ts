@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CssService {
-  private configUrl="http://localhost:3000/CssClasses"
+  private configUrl="http://LocalHost:8000/api/cssClass"
   constructor(private http : HttpClient) {
 
    }

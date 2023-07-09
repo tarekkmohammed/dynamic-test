@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class PageTreeService {
-  private configUrl="http://localhost:3000/Pagetree"
+  private configUrl="http://LocalHost:8000/api/pages/tree"
   constructor(private http : HttpClient) {
 
    }
@@ -30,6 +30,7 @@ export class PageTreeService {
     let idsOfChildren: Subject<number[]> = new Subject<number[]>();
     this.getPageTreeById(id).subscribe(page => {
     let childrenIds = [];
+    console.log(page.children)
     for (let child of page.children) {
       childrenIds.push(child.id)
     }

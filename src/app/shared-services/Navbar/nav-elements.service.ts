@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NavElementsService {
-  private configUrl="http://localhost:3000/navBar"
+  private configUrl="http://LocalHost:8000/api/navBar"
   constructor(private http : HttpClient) {
 
    }

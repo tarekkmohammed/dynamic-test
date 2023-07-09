@@ -9,11 +9,11 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-university me-3 text-secondary"></i>{{ about.universityName }}
+            <i class="fas fa-university me-3 text-secondary"></i>{{ about?.universityName }}
           </h6>
           <div class="p-2">
-            <p class="me-3">{{about.shortDescription}}</p>
-            <p class="me-3">{{about.mainSlogan}}</p>
+            <p class="me-3">{{about?.shortDescription}}</p>
+            <p class="me-3">{{about?.mainSlogan}}</p>
           </div>
         </div>
         <!-- Grid column -->
@@ -29,7 +29,7 @@
             <p class="me-2"><a href="{{socialMedia?.twitterLink}}"><i class="fab fa-twitter text-secondary"></i></a></p>
             <p><a href="{{socialMedia?.instagramLink}}"><i class="fab fa-instagram text-secondary"></i></a></p>
           </div>
-          <img [src]="'assets/images/' + images.defaultCoverLogo" style="width: 100px; height: 100px;">
+          <img [src]="'assets/images/' + images?.defaultCoverLogo" style="width: 100px; height: 100px;">
           <ng-component *ngFor="let itemSocial of socialMediaArray">
             <p>
               <a href="itemSocial.value" class="text-reset">{{ itemSocial.name }}</a>
@@ -46,10 +46,10 @@
           </h6>
           <h6 class="text-uppercase fw-bold mb-4"></h6>
           <div class="p-2">
-            <p><i class="fas fa-home me-2 text-secondary"></i>{{contactUs.universityAddress}}</p>
-            <p><i class="fas fa-envelope me-2 text-secondary"></i>{{contactUs.universityEmail}}</p>
-            <p><i class="fas fa-phone me-2 text-secondary"></i>{{contactUs.mainPhoneNumber}}</p>
-            <p><i class="fas fa-print me-2 text-secondary"></i>{{contactUs.universityLandline}}</p>
+            <p><i class="fas fa-home me-2 text-secondary"></i>{{contactUs?.universityAddress}}</p>
+            <p><i class="fas fa-envelope me-2 text-secondary"></i>{{contactUs?.universityEmail}}</p>
+            <p><i class="fas fa-phone me-2 text-secondary"></i>{{contactUs?.mainPhoneNumber}}</p>
+            <p><i class="fas fa-print me-2 text-secondary"></i>{{contactUs?.universityLandline}}</p>
           </div>
 
           <ng-component *ngFor="let itemContact of contactUsArray">

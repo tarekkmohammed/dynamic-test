@@ -7,9 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PageService {
-  private configUrl="http://localhost:3000/page"
+  private configUrl="http://LocalHost:8000/api/pages"
 
-  private url = "http://LocalHost:8000/api/"
   constructor(private http : HttpClient) {
 
    }

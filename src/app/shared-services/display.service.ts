@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DisplayService {
-  private configUrl="http://localhost:3000/displays"
+  private configUrl="http://LocalHost:8000/api/display"
   constructor(private http : HttpClient) {
 
    }

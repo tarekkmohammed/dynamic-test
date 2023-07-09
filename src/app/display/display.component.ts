@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
 import { MatGridList, MatGridTile, MatGridListModule } from '@angular/material/grid-list';
 import { Display } from '../models/Interface/display';
-import { forkJoin } from 'rxjs';
+import { forkJoin, map } from 'rxjs';
 
 
 @Component({
@@ -17,7 +17,7 @@ import { forkJoin } from 'rxjs';
 
 })
 export class DisplayComponent implements OnInit {
-
+   childPage:any
   images_: any;
   responsiveOptions: any;
   /**
@@ -73,7 +73,7 @@ export class DisplayComponent implements OnInit {
 
  ngOnInit()  {
     this.displayServ.getDisplayById(this.id).subscribe(data=>{
-      this.display=data
+      this.display=data.Display
       console.log('type', this.display.type)
       
       if (this.display.type === 'grid') {
@@ -92,22 +92,24 @@ export class DisplayComponent implements OnInit {
       
       this.pageServ.getPageById(this.display.source_page_id).subscribe(data=>{
      
-        this.displayPage=data
+        this.displayPage=data.page
         this.pageTreeServ.getPageChildren(this.display.source_page_id).subscribe( ids => {
           this.childrenIds = ids;
       //    console.log('ids', this.childrenIds);
         
-          if (this.childrenIds.length > 0) {
-            this.childrenPages = [];
-            const observables = [];
-            for (const childId of this.childrenIds) {
-          //    console.log('Current Child ID:', childId);
-              observables.push(this.pageServ.getPageById(childId));
-            }
-            forkJoin(observables).subscribe(results => {
-              this.childrenPages = results;
-            //  console.log(this.childrenPages);
-            });
+      if (this.childrenIds.length > 0) {
+        this.childrenPages = [];
+        const observables = [];
+        for (const childId of this.childrenIds) {
+          // console.log('Current Child ID:', childId);
+          const childPage$ = this.pageServ.getPageById(childId).pipe(map(res => res.page));
+          observables.push(childPage$);
+        }
+        forkJoin(observables)?.subscribe(results => {
+          this.childrenPages = results;
+          // console.log(this.childrenPages);
+        });
+      
           } else {
             console.log('No children IDs available.');
           }
@@ -126,7 +128,7 @@ export class DisplayComponent implements OnInit {
   handleDisplayData(display:any){
 
     this.pageServ.getPageById(display.source_page_id).subscribe(page => {
-      this.displayPage = page;
+      this.displayPage = page.page;
     })
 
     this.pageTreeServ.getPageChildren(display.source_page_id).subscribe(async childrenIds => {
@@ -137,9 +139,10 @@ export class DisplayComponent implements OnInit {
         this.childrenPages = [];
         for (const childId of this.childrenIds) {
           console.log('Current Child ID:', childId);
-          const pageData = await this.pageServ.getPageById(childId).toPromise();
-          this.childrenPages.push(pageData);
-          console.log('Page data loaded:', pageData);
+          this.childPage = await this.pageServ.getPageById(childId).toPromise();
+          this.childPage=this.childPage.page
+          this.childrenPages.push(this.childPage);
+          console.log('Page data loaded:', this.childPage);
         }
       } else {
         console.log('No children IDs available.');

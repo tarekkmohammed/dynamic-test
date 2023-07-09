@@ -31,9 +31,12 @@ export class AppComponent {
   }
 
   handlePageRoute(pagedata:pageRoute){
-   this.pageUrl=pagedata.url
+   console.log(pagedata)
+    this.pageUrl=pagedata.url
    window.history.replaceState({},'', this.baseUrl + this.pageUrl);
+   
    this.pagerender.id=pagedata.ID
+
    this.pagerender.ngOnInit() 
 
   }

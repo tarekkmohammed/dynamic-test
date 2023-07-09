@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.navBarService.getElements().subscribe(data => {
       this.elements = data
+      this.elements=this.elements.navBar
       this.elements.sort((a: any, b: any) => a.priority - b.priority);  // sort elements by priority
       this.elements.forEach((element: any) => {
         if (element.drop_down_elements.length === 0) {
