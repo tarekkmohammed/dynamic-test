@@ -38,7 +38,7 @@ export class PageRenderComponent implements OnInit {
       module.type = "module"  // flagging the modules 
       this.cssServ.getCss(module.class_id).subscribe(cssdata=>{
        this.cssClass=cssdata
-       this.cssClass=this.cssClass.cssClasses
+       this.cssClass=this.cssClass.CssClass
         module.css_class = this.cssClass
         module.class = module?.css_class?.css;
       });
