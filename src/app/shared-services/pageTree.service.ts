@@ -30,7 +30,7 @@ export class PageTreeService {
     let idsOfChildren: Subject<number[]> = new Subject<number[]>();
     this.getPageTreeById(id).subscribe(page => {
     let childrenIds = [];
-    console.log(page.children)
+    // console.log(page.children)
     for (let child of page.children) {
       childrenIds.push(child.id)
     }

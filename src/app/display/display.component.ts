@@ -8,6 +8,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { MatGridList, MatGridTile, MatGridListModule } from '@angular/material/grid-list';
 import { Display } from '../models/Interface/display';
 import { forkJoin, map } from 'rxjs';
+import { CssService } from '../shared-services/css.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class DisplayComponent implements OnInit {
    childPage:any
   images_: any;
   responsiveOptions: any;
+  titleParent:any;
   /**
    * is about the multi-card-carousel-settings
    */
@@ -38,11 +40,11 @@ export class DisplayComponent implements OnInit {
   settings: any;
   childrenIds: number[]=[]
   childrenPages: any[] = [];
-
+  cssClass:any;
   @Output() pageChange = new EventEmitter<pageRoute>();
   pageData: pageRoute = { ID: 0, url: '' };
 
-  constructor(private router: Router, private displayServ: DisplayService, private pageServ: PageService, private pageTreeServ: PageTreeService) {
+  constructor(private router: Router, private cssServ : CssService, private displayServ: DisplayService, private pageServ: PageService, private pageTreeServ: PageTreeService) {
     this.responsiveOptions = [{
       breakpoint: '1024px',
       numVisible: 2,
@@ -74,7 +76,8 @@ export class DisplayComponent implements OnInit {
  ngOnInit()  {
     this.displayServ.getDisplayById(this.id).subscribe(data=>{
       this.display=data.Display
-      console.log('type', this.display.type)
+      // console.log(data.Display)
+      // console.log('type', this.display.type)
       
       if (this.display.type === 'grid') {
         this.settings = this.display.grid_setting;
@@ -86,13 +89,22 @@ export class DisplayComponent implements OnInit {
   
         if (this.settings.auto_play === 1) {
           this.cards_carousel_settings.autoplaySpeed = this.settings.effect_speed_ms;
-          console.log('speed', this.cards_carousel_settings.autoplaySpeed);
+          // console.log('speed', this.cards_carousel_settings.autoplaySpeed);
         }
       }
+      this.cssServ.getCss(this.settings.class_id).subscribe(cssdata=>{
+        this.cssClass=cssdata
+        this.cssClass=this.cssClass.CssClass.css
+        // console.log(this.cssClass)
+
+
+   
       
       this.pageServ.getPageById(this.display.source_page_id).subscribe(data=>{
-     
+   
         this.displayPage=data.page
+        this.titleParent=this.displayPage.title
+        console.log(this.titleParent)
         this.pageTreeServ.getPageChildren(this.display.source_page_id).subscribe( ids => {
           this.childrenIds = ids;
       //    console.log('ids', this.childrenIds);
@@ -111,15 +123,15 @@ export class DisplayComponent implements OnInit {
         });
       
           } else {
-            console.log('No children IDs available.');
+            // console.log('No children IDs available.');
           }
         
-          console.log('children pages', this.childrenPages);
+          // console.log('children pages', this.childrenPages);
         });
       });
   
  
-    });
+    })      });
   
   
  
@@ -133,22 +145,22 @@ export class DisplayComponent implements OnInit {
 
     this.pageTreeServ.getPageChildren(display.source_page_id).subscribe(async childrenIds => {
       this.childrenIds = childrenIds;
-      console.log('ids', this.childrenIds)
+      // console.log('ids', this.childrenIds)
     
       if (this.childrenIds.length > 0) {
         this.childrenPages = [];
         for (const childId of this.childrenIds) {
-          console.log('Current Child ID:', childId);
+          // console.log('Current Child ID:', childId);
           this.childPage = await this.pageServ.getPageById(childId).toPromise();
           this.childPage=this.childPage.page
           this.childrenPages.push(this.childPage);
-          console.log('Page data loaded:', this.childPage);
+          // console.log('Page data loaded:', this.childPage);
         }
       } else {
-        console.log('No children IDs available.');
+        // console.log('No children IDs available.');
       }
     
-      console.log('children pages', this.childrenPages)
+      // console.log('children pages', this.childrenPages)
     });
 
     

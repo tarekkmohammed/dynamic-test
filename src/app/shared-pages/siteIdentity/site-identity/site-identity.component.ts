@@ -23,7 +23,7 @@ export class SiteIdentityComponent implements OnInit {
     this.siteIdentityServ.getSiteIdentity().subscribe(data=>{
       this.Site_identity = JSON.parse(JSON.stringify(data))
       this.Site_identity = this.Site_identity.Site_identity
-      console.log('site identity', this.Site_identity)
+   
       this.contactUs = this.Site_identity.contact_us
       this.socialMedia = this.Site_identity.social_media
       this.about = this.Site_identity.about
@@ -43,8 +43,7 @@ export class SiteIdentityComponent implements OnInit {
           this.contactUsArray.push({ name: key, value });
         }
       }
-      console.log('contactUSUS', this.contactUsArray)
-      console.log('socialMedia', this.socialMediaArray)
+
     })
   }
   getLogo(){
